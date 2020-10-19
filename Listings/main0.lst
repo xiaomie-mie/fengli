@@ -1,0 +1,63 @@
+C51 COMPILER V9.60.0.0   MAIN0                                                             10/19/2020 11:27:10 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN0
+OBJECT MODULE PLACED IN .\Objects\main0.obj
+COMPILER INVOKED BY: D:\software\Keil5\C51\BIN\C51.EXE main0.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listi
+                    -ngs\main0.lst) TABS(2) OBJECT(.\Objects\main0.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #define uint unsigned int
+   3          #define uchar unsigned char
+   4            
+   5          uint temp=0;
+   6          void Delay(unsigned int i)
+   7          { 
+   8   1        unsigned int j;   
+   9   1        for(;i>0;i--)
+  10   1        for(j=0;j<125;j++); 
+  11   1      }
+  12          
+  13          void  main( )   
+  14           {
+  15   1        TMOD=0x60;    //定时器工作方式计数器模式，T1，工作模式2（自动复位）
+  16   1        TH1=(256-16);   //每16脉冲1个中断，1圈256个脉冲共触发中断16次
+  17   1        TL1=(256-16);   
+  18   1        EA=1;         
+  19   1        ET1=1;        
+  20   1        TR1=1;        
+  21   1        while(1) ;        
+  22   1       }
+  23          
+  24          void T1_int(void)  interrupt 3    
+  25          {
+  26   1        
+  27   1        if(temp==15)
+  28   1        {
+  29   2        
+  30   2          P1=0x00;      
+  31   2          Delay(500); 
+  32   2          P1=0xff;
+  33   2          temp=0;
+  34   2        }
+  35   1        else temp++;
+  36   1      }
+  37          
+  38          
+  39                      
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    112    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

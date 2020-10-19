@@ -1,0 +1,3 @@
+".\Objects\main0.obj" 
+TO ".\Objects\fengli" 
+PRINT(".\Listings\fengli.m51") RAMSIZE(256) 
