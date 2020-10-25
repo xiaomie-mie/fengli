@@ -26,9 +26,8 @@ void T1_int(void)  interrupt 3
 	
 	if(temp==15)
 	{
-	
  		P1=0x00;			
- 		Delay(500); 
+ 		Delay(50); 
 		P1=0xff;
 		temp=0;
 	}
