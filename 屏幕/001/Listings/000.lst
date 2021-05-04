@@ -1,0 +1,43 @@
+C51 COMPILER V9.60.0.0   000                                                               04/05/2021 18:12:21 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE 000
+OBJECT MODULE PLACED IN .\Objects\000.obj
+COMPILER INVOKED BY: D:\software\Keil5\C51\BIN\C51.EXE 000.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listing
+                    -s\000.lst) TABS(2) OBJECT(.\Objects\000.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          sbit a0=P0^2; 
+   3          int j=0;
+   4          void delayms(uint)  ;
+   5          
+   6          
+   7          
+   8          void main(void)
+   9          {
+  10   1        while(1)
+  11   1        {
+  12   2        a0=1;
+  13   2        delayms(500);
+  14   2        a0=0;
+  15   2          delayms(500);
+  16   2        }
+  17   1        
+  18   1      }
+  19          
+  20          void delayms(uint j)
+*** ERROR C141 IN LINE 20 OF 000.c: syntax error near 'j', expected ')'
+  21          {
+  22   1      unsigned char i;
+  23   1      for(;j>0;j--)
+  24   1          { 
+  25   2          i=250;
+  26   2            while(--i);
+  27   2            i=249;
+  28   2            while(--i);
+  29   2          }
+  30   1      }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)
